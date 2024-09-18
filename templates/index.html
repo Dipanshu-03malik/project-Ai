@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Documents</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pptx2pdf/1.0.0/pptx2pdf.min.js"></script>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="left-section">
+            <button class="icon-button">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="flex-container">
+                <i class="fas fa-bolt text-blue"></i>
+                <span class="text-blue">102 &nbsp;</span>
+            </div>
+            <button class="upgrade-button">Smart AI 🫡</button>
+        </div>
+        <div class="right-section">
+            <button class="icon-button">
+                <i class="fas fa-bell"></i>
+            </button>
+            <button class="icon-button">
+                <i class="fas fa-ellipsis-v"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="button-group">
+            <button class="rounded-button">
+                <i class="fas fa-globe"></i>
+                <span>Access web: Off</span>
+            </button>
+            <button class="rounded-button">
+                <i class="fas fa-bolt text-green"></i>
+                <span>GPT 3.5</span>
+            </button>
+        </div>
+
+        <div class="options-group">
+            <button class="option-button" id="openDocumentChat">
+                <i class="fas fa-file-alt"></i>
+                <span>Chat with your Documents</span>
+                <span class="text-gray">pdf, doc, pptx, txt</span>
+            </button>
+            <button class="option-button" >
+                <i class="fas fa-globe"></i>
+                <span>Chat with this Webpage</span>
+            </button>
+            <button class="option-button">
+                <i class="fas fa-robot"></i>
+                <span>Chatbots</span>
+            </button>
+            <button class="option-button relative">
+                <i class="fas fa-image"></i>
+                <span>Generate Images</span>
+                <span class="notification-dot"></span>
+            </button>
+            <button class="option-button relative">
+                <i class="fas fa-code"></i>
+                <span>Code Interpreter</span>
+                <span class="text-green">Perform Data Analysis</span>
+                <span class="notification-dot blue"></span>
+            </button>
+        </div>
+
+        <!-- Document Chat Form (Initially Hidden) -->
+        <div class="document-chat-form" id="documentChatForm">
+            <div class="document-chat-header">
+                <h2>Chat with your Documents</h2>
+            </div>
+            <div class="document-chat-body">
+                <div class="drop-zone" id="dropArea">
+                    <i class="fas fa-file-upload"></i>
+                    <p>Drag & drop your documents here</p>
+                    <p class="text-gray">pdf, doc, pptx, txt</p>
+                    <input type="file" id="fileInput" name="fileInput" accept=".pdf, .docx, .pptx, .txt" style="display:none;">
+                </div>
+                <div id="pdfContent" style="margin-top: 20px;"></div>
+            </div>
+            <div id="chatBox">
+                <input type="text" id="chatInput" placeholder="Ask a question about the document..." />
+                <button id="sendButton">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Input -->
+    <div class="chat-input-bar">
+        <input type="text" placeholder="Start Chatting Now" class="chat-input">
+        <button class="attach-button">
+            <i class="fas fa-paperclip"></i>
+        </button>
+        <button class="send-button">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <a href="#" class="footer-link">Contact Us</a>
+        <div class="social-links">
+            <span>Follow Us On:</span>
+            <i class="fab fa-facebook text-blue"></i>
+            <i class="fab fa-twitter text-blue-light"></i>
+            <i class="fab fa-instagram text-pink"></i>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
